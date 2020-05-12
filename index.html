@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app='calenderApp' ng-cloak='true'>
+<head>
+	<title>T-Organise</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header>
+		<div class="topnav">
+     	<div class="dropdown">
+    	<button class="dropbtn">My Profile
+      	<i class="fa fa-caret-down"></i>
+    	</button>
+    	<div class="dropdown-content">
+      	<form action="action_page.php" method="post">
+      	<div class="imgcontainer">
+      	<img src="images/avater.png" alt="Avatar" class="avatar">
+      	</div>
+
+      	<div class="container">
+      	<label for="uname"><b>Username</b></label>
+      	<input type="text" placeholder="Enter Username" name="uname" required>
+      	</div>
+      	<button type="button" class="editbtn">Edit Profile</button>
+    	</form>
+  		</div>
+	    <a href="#home">My Events</a>
+	    <a href="#about">Today</a>
+	  	<a href="#contact">Upcoming</a>
+	  	<a href="#contact">Completed</a>
+	  	<div class="search-container">
+	    <form action="/action_page.php">
+	      <input type="text" placeholder="Quick Find.." name="search">
+	      <button type="submit"><i class="fa fa-search"></i></button>
+	    </form>
+	  	</div>
+	</div>
+	</header>
+     <section id="showcase">
+     	<p>Start Organising Your Days!</p>
+     </section>
+  
+     <section id="main">
+     	<script src="../js/main.js"></script>
+     	<div class='calendar' ng-controller='calendarController as calendar'>
+  <div class='calendar_left'>
+    <div class='header'>
+      <i class='material-icons' ng-click='calendar.prev()'>navigate_before</i>
+      <h1>{{calendar.month}}</h1>
+      <i class='material-icons' ng-click='calendar.next()'>navigate_next</i>
+    </div>
+    <div class='days'>
+      <div class='day_item'>Mon</div>
+      <div class='day_item'>Tue</div>
+      <div class='day_item'>Wed</div>
+      <div class='day_item'>Thu</div>
+      <div class='day_item'>Fri</div>
+      <div class='day_item'>Sat</div>
+      <div class='day_item'>Sun</div>
+    </div>
+    <div class='dates'></div>
+  </div>
+  <div class='calendar_right'>
+    <div class='list'>
+      <ul>
+        <li class='bounce-in' ng-repeat='events in calendar.events' ng-show='events.id === calendar.dataId'>
+          <span class='type'>It's a {{ events.type }} thing -</span>
+          <span class='description'>{{ events.description }}</span>
+        </li>
+      </ul>
+    </div>
+    <form ng-submit='calendar.add()'>
+      <input ng-model='calendar.description' placeholder='Enter a task for this day' type='text'>
+        <select ng-model='calendar.type' placeholder='calendar.type'>
+          <option value='Social'>Social</option>
+          <option value='Work'>Work</option>
+        </select>
+      </input>
+    </form>
+  </div>
+</div>
+
+     </section>
+</body>
+</html>
