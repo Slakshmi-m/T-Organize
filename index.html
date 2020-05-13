@@ -5,36 +5,37 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="/js/main.js"></script>
 </head>
 <body>
 	<header>
-		<div class="topnav">
-     	<div class="dropdown">
-    	<button class="dropbtn">My Profile
-      	<i class="fa fa-caret-down"></i>
-    	</button>
-    	<div class="dropdown-content">
-      	<form action="action_page.php" method="post">
-      	<div class="imgcontainer">
-      	<img src="images/avater.png" alt="Avatar" class="avatar">
-      	</div>
+	  <div class="topnav">
+		<div class="dropdown">
+		<button class="dropbtn">My Profile
+		<i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-content">
+		<form action="action_page.php" method="post">
+		<div class="imgcontainer">
+		<img src="images/avater.png" alt="Avatar" class="avatar">
+		</div>
 
-      	<div class="container">
-      	<label for="uname"><b>Username</b></label>
-      	<input type="text" placeholder="Enter Username" name="uname" required>
-      	</div>
-      	<button type="button" class="editbtn">Edit Profile</button>
-    	</form>
+		<div class="container">
+		<label for="uname"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="uname" required>
+		</div>
+		<button type="button" class="editbtn">Edit Profile</button>
+		</form>
   		</div>
-	    <a href="#home">My Events</a>
-	    <a href="#about">Today</a>
+	        <a href="#home">My Events</a>
+		<a href="#about">Today</a>
 	  	<a href="#contact">Upcoming</a>
 	  	<a href="#contact">Completed</a>
 	  	<div class="search-container">
-	    <form action="/action_page.php">
-	      <input type="text" placeholder="Quick Find.." name="search">
-	      <button type="submit"><i class="fa fa-search"></i></button>
-	    </form>
+	        <form action="/action_page.php">
+	        <input type="text" placeholder="Quick Find.." name="search">
+	        <button type="submit"><i class="fa fa-search"></i></button>
+	        </form>
 	  	</div>
 	</div>
 	</header>
@@ -43,10 +44,9 @@
      </section>
   
      <section id="main">
-     	<script src="../js/main.js"></script>
      	<div class='calendar' ng-controller='calendarController as calendar'>
-  <div class='calendar_left'>
-    <div class='header'>
+        <div class='calendar_left'>
+        <div class='header'>
       <i class='material-icons' ng-click='calendar.prev()'>navigate_before</i>
       <h1>{{calendar.month}}</h1>
       <i class='material-icons' ng-click='calendar.next()'>navigate_next</i>
